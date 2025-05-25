@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Adicionar à Lista</title>
+  <script>
+    function adicionarItem() {
+      const input = document.getElementById("entradaTexto");
+      const texto = input.value;
+
+      if (texto.trim() === "") {
+        alert("Digite algo para adicionar à lista.");
+        return;
+      }
+
+      const ul = document.getElementById("lista");
+      const novoItem = document.createElement("li");
+      novoItem.textContent = texto; 
+      ul.appendChild(novoItem); 
+
+      input.value = ""; 
+    }
+  </script>
+</head>
+<body>
+
+  <h2>Adicionar à Lista</h2>
+
+  <input type="text" id="entradaTexto" placeholder="Digite um item">
+  <button onclick="adicionarItem()">Adicionar</button>
+
+  <ul id="lista">
+  </ul>
+
+</body>
+</html>

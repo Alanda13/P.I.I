@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Alto Contraste</title>
+  <script>
+    // Função para ativar alto contraste
+    function ativarAltoContraste() {
+      document.body.style.backgroundColor = "black";
+      document.body.style.color = "white";
+    }
+
+    // Função para resetar as cores originais
+    function resetarCores() {
+      document.body.style.backgroundColor = "white";
+      document.body.style.color = "black";
+    }
+  </script>
+</head>
+<body>
+
+  <h2>Modo de Acessibilidade</h2>
+  <p>Este é um exemplo de alternância de contraste para acessibilidade.</p>
+
+  <button onclick="ativarAltoContraste()">Ativar Alto Contraste</button>
+  <button onclick="resetarCores()">Resetar Cores</button>
+
+</body>
+</html>

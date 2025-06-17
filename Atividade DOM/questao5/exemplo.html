@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Exemplo textContent vs innerText vs innerHTML</title>
+</head>
+<body>
+
+<div id="exemplo">
+  Olá <span style="display:none;">mundo</span>!
+</div>
+
+<script>
+  var div = document.getElementById("exemplo");
+
+  console.log("textContent:", div.textContent);
+  console.log("innerText:", div.innerText);
+  console.log("innerHTML:", div.innerHTML);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Exemplo getElementById com messi</title>
+  <script>
+    function mudarTexto() {
+      var elemento = document.getElementById("messi");
+      elemento.textContent = "Texto alterado pelo getElementById!";
+    }
+  </script>
+</head>
+<body>
+  <p id="messi">Texto original.</p>
+  <button onclick="mudarTexto()">Clique para mudar texto</button>
+</body>
+</html>

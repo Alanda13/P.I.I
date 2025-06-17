@@ -1,0 +1,14 @@
+Questão 5) Diferença entre textContent, innerText e innerHTML:
+
+- textContent: retorna todo o texto do elemento, incluindo o texto que está oculto via CSS. Não interpreta HTML, pega o texto literal.
+
+- innerText: retorna o texto visível para o usuário, ignorando textos ocultos por CSS. Pode ser mais lento por depender do estilo e layout da página.
+
+- innerHTML: retorna ou define o conteúdo HTML do elemento, interpretando as tags HTML dentro do conteúdo.
+
+---------------------------------------------
+- textContent inclui texto oculto.
+- innerText inclui apenas texto visível.
+- innerHTML inclui o HTML interno do elemento.
+
+

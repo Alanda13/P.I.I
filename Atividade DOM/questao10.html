@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Calculadora Simples</title>
+  <script>
+    function calcular() {
+      const num1 = parseFloat(document.getElementById("num1").value);
+      const num2 = parseFloat(document.getElementById("num2").value);
+      let resultado = "";
+
+      if (document.getElementById("soma").checked) {
+        resultado = num1 + num2;
+      } else if (document.getElementById("subtracao").checked) {
+        resultado = num1 - num2;
+      } else if (document.getElementById("multiplicacao").checked) {
+        resultado = num1 * num2;
+      } else if (document.getElementById("divisao").checked) {
+        if (num2 !== 0) {
+          resultado = num1 / num2;
+        } else {
+          resultado = "Erro: Divisão por zero";
+        }
+      } else {
+        resultado = "Selecione uma operação!";
+      }
+
+      document.getElementById("resultado").textContent = "Resultado: " + resultado;
+    }
+  </script>
+</head>
+<body>
+
+  <h2>Calculadora Simples</h2>
+
+  <input type="number" id="num1" placeholder="Número 1">
+  <input type="number" id="num2" placeholder="Número 2">
+  <br><br>
+
+  <input type="radio" name="operacao" id="soma"> Soma (+)
+  <input type="radio" name="operacao" id="subtracao"> Subtração (-)
+  <input type="radio" name="operacao" id="multiplicacao"> Multiplicação (×)
+  <input type="radio" name="operacao" id="divisao"> Divisão (÷)
+
+  <br><br>
+  <button onclick="calcular()">Calcular</button>
+
+  <p id="resultado">Resultado:</p>
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Controle de Tamanho de Texto</title>
+  <script>
+    // Tamanho inicial da fonte
+    let tamanhoFonte = 16;
+
+    function aumentarTexto() {
+      tamanhoFonte += 2;
+      document.body.style.fontSize = tamanhoFonte + "px";
+    }
+
+    function diminuirTexto() {
+      if (tamanhoFonte > 10) {
+        tamanhoFonte -= 2;
+        document.body.style.fontSize = tamanhoFonte + "px";
+      }
+    }
+  </script>
+</head>
+<body>
+
+  <h2>Exemplo de Acessibilidade com Controle de Texto</h2>
+  <p>Use os botões abaixo para aumentar ou diminuir o tamanho do texto da página.</p>
+
+  <button onclick="aumentarTexto()">Aumentar Texto</button>
+  <button onclick="diminuirTexto()">Diminuir Texto</button>
+
+</body>
+</html>

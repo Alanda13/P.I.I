@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Exemplo getElementsByTagName</title>
+  <script>
+    function contarParagrafos() {
+      var paragrafos = document.getElementsByTagName("p");
+      alert("Número de parágrafos na página: " + paragrafos.length);
+    }
+  </script>
+</head>
+<body>
+  <p>Lionel</p>
+  <p>Messi</p>
+  <p>Leo Messi</p>
+  <button onclick="contarParagrafos()">Contar parágrafos</button>
+</body>
+</html>

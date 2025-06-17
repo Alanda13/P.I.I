@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Seletor de Imagens - Messi</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        #imagemDinamica {
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            min-height: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f9f9f9;
+        }
+
+        #imagemDinamica img {
+            max-width: 100%;
+            max-height: 100%;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <h1>Escolha uma Imagem do Messi</h1>
+
+    <select id="seletorImagens">
+        <option value="">-- Selecione --</option>
+        <option value="https://admin.cnnbrasil.com.br/wp-content/uploads/sites/12/2024/06/GettyImages-2155232463-e1719507664807.jpg">
+            Messi no Inter Miami
+        </option>
+        <option value="https://www.lance.com.br/galerias/wp-content/uploads/2020/10/Messi-2014-15-709x474.jpg">
+            Messi no Barcelona
+        </option>
+        <option value="https://lncimg.lance.com.br/cdn-cgi/image/width=950,quality=75,fit=pad,format=webp/uploads/2022/12/03/638ba710cd1c8.jpeg">
+            Messi na Argentina
+        </option>
+    </select>
+
+    <div id="imagemDinamica">Nenhuma imagem selecionada.</div>
+
+    <script>
+        document.getElementById("seletorImagens").addEventListener("change", function () {
+            const urlDaImagem = this.value;
+            const divExibicao = document.getElementById("imagemDinamica");
+
+            divExibicao.innerHTML = "";
+
+            if (urlDaImagem) {
+                const imgElement = document.createElement("img");
+                imgElement.src = urlDaImagem;
+                imgElement.alt = "Imagem do Messi";
+                divExibicao.appendChild(imgElement);
+            } else {
+                divExibicao.innerHTML = "Nenhuma imagem selecionada.";
+            }
+        });
+    </script>
+</body>
+</html>

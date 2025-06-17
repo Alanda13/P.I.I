@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Hashtags Populares</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        label {
+            font-weight: bold;
+        }
+        #listaHashtags {
+            width: 250px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Adicionar Hashtags Populares</h2>
+
+    <label for="inputHashtag">Digite uma hashtag:</label><br>
+    <input type="text" id="inputHashtag" placeholder="#exemplo"><br><br>
+
+    <button id="adicionarBtn">Adicionar Hashtag</button>
+
+    <h3>Lista de Hashtags Populares:</h3>
+    <select id="listaHashtags" size="5"></select>
+
+    <script>
+        document.getElementById("adicionarBtn").addEventListener("click", function() {
+            const input = document.getElementById("inputHashtag");
+            const valorHashtag = input.value.trim();
+
+            if (valorHashtag === "") {
+                alert("Digite uma hashtag válida!");
+                return;
+            }
+
+            const select = document.getElementById("listaHashtags");
+
+            const option = document.createElement("option");
+            option.text = valorHashtag;
+            select.appendChild(option);
+
+            input.value = "";
+            input.focus();
+        });
+    </script>
+
+</body>
+</html>

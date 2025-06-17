@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Validação e Exibição</title>
+<style>
+  .oculto {
+    display: none;
+  }
+  #mensagemErro {
+    color: red;
+    margin-top: 10px;
+  }
+</style>
+</head>
+<body>
+
+<label for="caixaDeTexto">Digite o texto:</label>
+<input type="text" id="caixaDeTexto" />
+<button id="botaoExibir">Exibir</button>
+<div id="conteudo"></div>
+
+<!-- Div para exibir mensagem de erro -->
+<div id="mensagemErro" class="oculto"></div>
+
+<script>
+  function showErrorMessage(message, elementId) {
+    var elemento = document.getElementById(elementId);
+    if (!elemento) return;
+    elemento.textContent = message;
+    elemento.classList.remove("oculto");
+    setTimeout(function () {
+      elemento.classList.add("oculto");
+      elemento.textContent = "";
+    }, 3000);
+  }
+
+  document.getElementById('botaoExibir').addEventListener('click', function() {
+    var texto = document.getElementById('caixaDeTexto').value.trim();
+
+    if (texto === "") {
+      // Mostrar erro na div mensagemErro
+      showErrorMessage("O campo não pode ser vazio!", "mensagemErro");
+      // Limpar o conteúdo anterior caso tenha
+      document.getElementById('conteudo').innerHTML = "";
+    } else {
+      // Mostrar conteúdo na div conteudo
+      document.getElementById('conteudo').innerHTML = texto;
+      // Garantir que mensagem de erro esteja escondida
+      var msgErro = document.getElementById('mensagemErro');
+      msgErro.classList.add("oculto");
+      msgErro.textContent = "";
+    }
+  });
+</script>
+
+</body>
+</html>

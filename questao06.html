@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redes Sociais Favoritas</title>
+    <style>
+        .oculto {
+            color: red;
+            margin-top: 10px;
+            display: none;
+        }
+
+        #redesSelecionadas {
+            margin-top: 15px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Selecione suas redes sociais favoritas:</h2>
+
+    <div>
+        <input type="checkbox" id="facebook" name="redesSociais" value="Facebook">
+        <label for="facebook">Facebook</label>
+    </div>
+    <div>
+        <input type="checkbox" id="twitter" name="redesSociais" value="Twitter">
+        <label for="twitter">Twitter</label>
+    </div>
+    <div>
+        <input type="checkbox" id="instagram" name="redesSociais" value="Instagram">
+        <label for="instagram">Instagram</label>
+    </div>
+    <div>
+        <input type="checkbox" id="linkedin" name="redesSociais" value="LinkedIn">
+        <label for="linkedin">LinkedIn</label>
+    </div>
+    <div>
+        <input type="checkbox" id="tiktok" name="redesSociais" value="TikTok">
+        <label for="tiktok">TikTok</label>
+    </div>
+
+    <div class="oculto" id="mensagemErro">Você deve selecionar pelo menos uma rede social.</div>
+    <div id="redesSelecionadas"></div>
+
+    <button type="button" id="enviarBtn">Enviar Seleção</button>
+
+    <script>
+        document.getElementById("enviarBtn").addEventListener("click", function() {
+            const checkboxes = document.getElementsByName("redesSociais");
+            const selecionadas = [];
+
+            // Percorre todos os checkboxes
+            for (let i = 0; i < checkboxes.length; i++) {
+                if (checkboxes[i].checked) {
+                    selecionadas.push(checkboxes[i].value);
+                }
+            }
+
+            const mensagemErro = document.getElementById("mensagemErro");
+            const resultado = document.getElementById("redesSelecionadas");
+
+            if (selecionadas.length === 0) {
+                mensagemErro.style.display = "block";
+                resultado.innerHTML = "";
+            } else {
+                mensagemErro.style.display = "none";
+                resultado.innerHTML = "Você selecionou: " + selecionadas.join(", ");
+            }
+        });
+    </script>
+</body>
+</html>

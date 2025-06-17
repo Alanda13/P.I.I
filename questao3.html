@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Calculadora de Taxa de Engajamento</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    max-width: 400px;
+    margin: 40px auto;
+    padding: 0 15px;
+  }
+  label {
+    display: block;
+    margin-top: 15px;
+  }
+  input[type="text"], input[type="number"] {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    box-sizing: border-box;
+    font-size: 16px;
+  }
+  button {
+    margin-top: 20px;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  #mensagemErro {
+    color: red;
+    margin-top: 15px;
+    display: none;
+  }
+  #resultado {
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: 18px;
+  }
+</style>
+</head>
+<body>
+
+<h2>Calculadora de Taxa de Engajamento</h2>
+
+<label for="interacoes">Número de Interações (Curtidas, Comentários, Compartilhamentos):</label>
+<input type="text" id="interacoes" placeholder="Digite o número de interações" />
+
+<label for="visualizacoes">Número de Visualizações:</label>
+<input type="text" id="visualizacoes" placeholder="Digite o número de visualizações" />
+
+<button id="calcular">Calcular Taxa de Engajamento</button>
+
+<div id="mensagemErro"></div>
+
+<div id="resultado"></div>
+
+<script>
+  function showErrorMessage(message) {
+    const erroDiv = document.getElementById('mensagemErro');
+    erroDiv.textContent = message;
+    erroDiv.style.display = 'block';
+
+    setTimeout(() => {
+      erroDiv.style.display = 'none';
+      erroDiv.textContent = '';
+    }, 3000);
+  }
+
+  document.getElementById('calcular').addEventListener('click', function() {
+    const interacoesStr = document.getElementById('interacoes').value.trim();
+    const visualizacoesStr = document.getElementById('visualizacoes').value.trim();
+
+    // Verificar se vazio
+    if (interacoesStr === '' || visualizacoesStr === '') {
+      showErrorMessage('Por favor, preencha ambos os campos.');
+      document.getElementById('resultado').textContent = '';
+      return;
+    }
+
+    // Converter para número
+    const interacoes = Number(interacoesStr);
+    const visualizacoes = Number(visualizacoesStr);
+
+    // Validar números
+    if (isNaN(interacoes) || isNaN(visualizacoes)) {
+      showErrorMessage('Por favor, insira valores numéricos válidos.');
+      document.getElementById('resultado').textContent = '';
+      return;
+    }
+
+    if (visualizacoes === 0) {
+      showErrorMessage('O número de visualizações não pode ser zero.');
+      document.getElementById('resultado').textContent = '';
+      return;
+    }
+
+    // Calcular taxa
+    const taxa = (interacoes / visualizacoes) * 100;
+
+    // Exibir resultado com 2 casas decimais
+    document.getElementById('resultado').textContent = `Taxa de engajamento: ${taxa.toFixed(2)}%`;
+  });
+</script>
+
+</body>
+</html>

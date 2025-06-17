@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Upload de Imagem</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    max-width: 500px;
+    margin: 40px auto;
+    padding: 0 15px;
+  }
+  input[type="file"] {
+    margin-top: 10px;
+  }
+  button {
+    margin-top: 15px;
+    padding: 10px;
+    cursor: pointer;
+  }
+  #mensagemErro {
+    color: red;
+    margin-top: 10px;
+    display: none;
+  }
+  #resultado img {
+    margin-top: 20px;
+    max-width: 100%;
+    height: auto;
+    border: 2px solid #ccc;
+    padding: 5px;
+  }
+</style>
+</head>
+<body>
+
+<h2>Carregar e Exibir Imagem</h2>
+
+<input type="file" id="uploadImagem" accept="image/*" />
+
+<br>
+<button id="botaoCarregar">Carregar Imagem</button>
+
+<div id="mensagemErro"></div>
+
+<div id="resultado"></div>
+
+<script>
+  function showErrorMessage(message) {
+    const erroDiv = document.getElementById('mensagemErro');
+    erroDiv.textContent = message;
+    erroDiv.style.display = 'block';
+
+    setTimeout(() => {
+      erroDiv.style.display = 'none';
+      erroDiv.textContent = '';
+    }, 3000);
+  }
+
+  document.getElementById('botaoCarregar').addEventListener('click', function() {
+    const uploadImagem = document.getElementById('uploadImagem');
+    const arquivoSelecionado = uploadImagem.files[0];
+    const resultado = document.getElementById('resultado');
+
+    // Limpar resultado anterior
+    resultado.innerHTML = '';
+
+    if (!arquivoSelecionado) {
+      showErrorMessage('Por favor, selecione uma imagem.');
+      return;
+    }
+
+    // Criar elemento <img>
+    const img = document.createElement('img');
+    img.src = URL.createObjectURL(arquivoSelecionado);
+
+    // Adicionar imagem na div resultado
+    resultado.appendChild(img);
+  });
+</script>
+
+</body>
+</html>
